@@ -1,0 +1,8 @@
+data/raw/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.pt
+*.pth
+.pytest_cache/

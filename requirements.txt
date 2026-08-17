@@ -1,0 +1,11 @@
+torch
+torchaudio
+pandas
+numpy
+scipy
+scikit-learn
+xgboost
+librosa
+matplotlib
+jupyter
+pytest
