@@ -1,8 +1,12 @@
 data/raw/
+data/processed/
 .venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 *.pt
 *.pth
+# Exception: small edge-deployment export artifacts are meant to be tracked
+# (unlike large training checkpoints elsewhere, which stay untracked above).
+!models/export/*.pt
 .pytest_cache/

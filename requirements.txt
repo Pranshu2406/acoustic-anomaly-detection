@@ -6,6 +6,11 @@ scipy
 scikit-learn
 xgboost
 librosa
+sounddevice
+onnx
+onnxruntime
 matplotlib
 jupyter
 pytest
+remotezip
+tqdm
