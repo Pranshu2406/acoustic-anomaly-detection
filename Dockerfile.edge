@@ -1,0 +1,27 @@
+# Edge-deployment validation image: linux/arm64, meant to be built via
+# `docker buildx build --platform linux/arm64` (see README "Edge deployment
+# readiness"). Runs scripts/edge_inference.py against the ONNX export using
+# ONNX Runtime only -- no PyTorch, no training stack -- the same runtime
+# footprint a real Raspberry Pi / Jetson deployment would use.
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Runtime deps only: numpy + librosa/soundfile (log-mel extraction, must
+# exactly match training preprocessing) + onnxruntime. No torch, no pandas,
+# no scikit-learn, no matplotlib/jupyter -- none of the dev/training stack.
+RUN pip install --no-cache-dir \
+    numpy \
+    librosa \
+    soundfile \
+    onnxruntime
+
+# App code: the standalone edge script + only the preprocessing module it
+# reuses (not the rest of src/, which pulls in torch/pandas for training).
+COPY scripts/edge_inference.py scripts/edge_inference.py
+COPY src/__init__.py src/__init__.py
+COPY src/preprocessing.py src/preprocessing.py
+COPY models/export/cnn_deployment.onnx models/export/cnn_deployment.onnx
+COPY models/export/norm_stats.json models/export/norm_stats.json
+
+ENTRYPOINT ["python", "scripts/edge_inference.py"]
