@@ -1,0 +1,9 @@
+tag,machine_id,label,file,proba,normalized_entropy,frac_hot,hz_range,time_range_s,out_path
+abnormal_heldout,id_00,abnormal,00000346.wav,0.9801677465438843,0.8041919811255411,0.00509185303514377,"(0.0, 143.63695387912688)","(1.632, 6.304)",notebooks/gradcam_01_abnormal_heldout.png
+abnormal_heldout,id_02,abnormal,00000305.wav,1.0,0.9344591475226743,0.03589257188498403,"(0.0, 670.3057847692588)","(0.064, 9.792)",notebooks/gradcam_02_abnormal_heldout.png
+abnormal_heldout,id_04,abnormal,00000296.wav,0.9999699592590332,0.8349608282665104,0.030451277955271566,"(0.0, 191.5159385055025)","(0.192, 9.856)",notebooks/gradcam_03_abnormal_heldout.png
+abnormal_heldout,id_06,abnormal,00000307.wav,0.6522029042243958,0.8838104801008538,0.004043530351437699,"(0.0, 526.6688308901319)","(2.976, 6.112)",notebooks/gradcam_04_abnormal_heldout.png
+normal_heldout,id_00,normal,00000859.wav,7.822405677870847e-06,0.9898458163927017,0.01812100638977636,"(0.0, 191.5159385055025)","(1.664, 9.024)",notebooks/gradcam_05_normal_heldout.png
+normal_heldout,id_02,normal,00000864.wav,2.99294861179078e-05,0.9943015211482417,0.01847044728434505,"(0.0, 1287.2546900644807)","(0.096, 9.76)",notebooks/gradcam_06_normal_heldout.png
+normal_heldout,id_04,normal,00000878.wav,2.921679333667271e-05,0.9899856168012121,0.0191194089456869,"(0.0, 478.78984626375626)","(4.768, 9.824)",notebooks/gradcam_07_normal_heldout.png
+same_machine_as_sanity_check,id_00,abnormal,00000000.wav,0.9981086254119873,0.8504855095815526,0.008636182108626198,"(0.0, 143.63695387912688)","(1.664, 9.984)",notebooks/gradcam_08_same_machine_as_sanity_check.png
