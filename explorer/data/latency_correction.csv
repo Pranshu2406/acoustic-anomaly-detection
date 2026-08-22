@@ -1,0 +1,4 @@
+metric,before_fix,after_fix
+classical_avg_throughput_clips_per_sec,53.3,73.8
+cnn_throughput_clips_per_sec,179.5,179.5
+speedup_multiplier,3.4,2.4

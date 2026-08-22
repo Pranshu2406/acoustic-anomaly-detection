@@ -1,0 +1,13 @@
+machine,model,f1,roc_auc,pr_auc,chance_pr_auc,flag
+id_00,Logistic Regression,0.405,0.552,0.385,0.287,
+id_00,XGBoost,0.403,0.629,0.627,0.287,
+id_00,Random Forest,0.419,0.624,0.537,0.287,
+id_02,Logistic Regression,0.540,0.592,0.575,0.261,
+id_02,XGBoost,0.222,0.421,0.244,0.261,below_chance_pr_auc
+id_02,Random Forest,0.503,0.700,0.601,0.261,
+id_04,Logistic Regression,0.406,0.638,0.509,0.252,
+id_04,XGBoost,0.749,0.681,0.731,0.252,
+id_04,Random Forest,0.006,0.711,0.600,0.252,threshold_calibration_artifact
+id_06,Logistic Regression,0.441,0.328,0.427,0.262,
+id_06,XGBoost,0.502,0.919,0.773,0.262,
+id_06,Random Forest,0.520,0.759,0.619,0.262,

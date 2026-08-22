@@ -1,0 +1,5 @@
+model,size_kb,params,model_only_latency_mean_ms,model_only_latency_p95_ms,full_pipeline_latency_mean_ms,full_pipeline_latency_p95_ms,full_pipeline_approx
+Logistic Regression,0.9,,0.054,0.056,14.5,,True
+XGBoost,143.1,,0.102,0.250,12.0,,False
+Random Forest,218.8,,2.275,2.353,14.5,,True
+CNN (GroupNorm),106.3,25633,0.984,1.208,5.6,6.0,False

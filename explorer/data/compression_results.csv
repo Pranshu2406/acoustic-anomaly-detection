@@ -1,0 +1,6 @@
+variant,size_kb,latency_mean_ms,latency_p95_ms,f1,roc_auc,pr_auc,latency_note
+fp32 baseline,105.2,2.162,3.071,0.446,0.779,0.662,
+int8 quantized (partial),36.4,2.333,3.031,0.446,0.756,0.633,
+Pruned 30% sparsity,105.2,1.7,,0.446,0.80,0.65,flat (unstructured pruning; no size/latency change expected)
+Pruned 50% sparsity,105.2,1.7,,0.448,0.82,0.71,flat (unstructured pruning; no size/latency change expected)
+Pruned 70% sparsity,105.2,1.6,,0.446,0.78,0.65,flat (unstructured pruning; no size/latency change expected)

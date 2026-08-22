@@ -1,0 +1,5 @@
+machine,batchnorm_f1,batchnorm_roc_auc,batchnorm_pr_auc,groupnorm_pr_auc,chance_pr_auc,batchnorm_below_chance
+id_00,0.446,0.681,0.342,0.662,0.287,False
+id_02,0.412,0.374,0.165,0.570,0.261,True
+id_04,0.900,0.980,0.882,0.780,0.252,False
+id_06,0.410,0.211,0.251,0.686,0.262,True

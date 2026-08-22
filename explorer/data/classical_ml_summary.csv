@@ -1,0 +1,4 @@
+model,f1_mean,f1_std,roc_auc_mean,roc_auc_std,pr_auc_mean,pr_auc_std
+Logistic Regression,0.448,0.064,0.528,0.138,0.474,0.085
+XGBoost,0.469,0.220,0.662,0.204,0.594,0.241
+Random Forest,0.362,0.241,0.699,0.056,0.589,0.036

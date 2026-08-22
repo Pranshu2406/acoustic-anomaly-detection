@@ -1,0 +1,5 @@
+machine,cnn_pr_auc,best_classical_pr_auc,best_classical_model,winner,margin
+id_00,0.662,0.627,XGBoost,CNN,0.035
+id_02,0.570,0.601,Random Forest,Classical,-0.031
+id_04,0.780,0.731,XGBoost,CNN,0.049
+id_06,0.686,0.773,XGBoost,Classical,-0.087

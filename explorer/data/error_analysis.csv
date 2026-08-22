@@ -1,0 +1,5 @@
+model,false_positives,false_negatives,total_wrong,unique_wrong,unique_error_rate
+Logistic Regression,901,809,1710,505,0.295
+XGBoost,1849,514,2363,243,0.103
+Random Forest,1595,642,2237,88,0.039
+CNN,2563,293,2856,719,0.252
