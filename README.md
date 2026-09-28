@@ -1,6 +1,29 @@
-# Acoustic Anomaly Detection
+# Acoustic Anomaly Detection for Industrial Machines
 
-Detecting anomalous machine sounds (fan, pump, valve, slider) from audio recordings.
+Detecting faulty machine sounds from audio. The project compares classical ML against a PyTorch CNN, then takes the CNN toward edge deployment. It uses the MIMII dataset (fan machine type, 6 dB SNR, 5,550 ten-second clips from 4 physical machines).
+
+📄 **[Full report (PDF)](acoustic-anomaly-detection-report.pdf)** covers the modeling, error analysis, latency, and compression work. The streaming, calibration, interpretability, and edge-deployment sections below are README-only.
+
+## Summary
+
+- **Evaluation:** 4-fold leave-one-machine-out cross-validation. Every model is tested on a machine it never saw in training. The primary metric is PR-AUC, because the data is imbalanced (~27% abnormal).
+- **Accuracy:** The CNN and the best classical model per machine are effectively tied (mean PR-AUC 0.674 vs 0.683). With only 4 held-out machines, that gap is within noise.
+- **A diagnosed failure:** The first CNN collapsed below chance on 2 of 4 machines. I traced this to BatchNorm's running statistics breaking under a measured loudness shift between machines (+2.4 to +6.8 dB). Switching to GroupNorm raised mean PR-AUC from 0.410 to 0.674.
+- **Latency (CPU):** The CNN's full pipeline takes 5.6 ms per clip, about 2.4x the throughput of the classical pipelines. The advantage first measured 3.4x; I corrected it after finding redundant STFT computation in my own feature code.
+- **Compression:**
+  - Int8 quantization cut model size by 65% with no latency gain, because GroupNorm layers stay in fp32.
+  - Unstructured pruning to 50% sparsity cost no accuracy, but gave no speedup on a dense CPU runtime.
+- **Edge readiness (validated in software, not yet on real hardware):**
+  - The model exports to ONNX and TorchScript, matching PyTorch outputs to within ~7e-6.
+  - It runs correctly in a `linux/arm64` container.
+  - Memory profiling showed that preprocessing, not the model, is the bottleneck: the ONNX runtime uses ~9 MB, but `librosa`'s numba/llvmlite chain pushes resident memory to ~370 MB. That is too little headroom for a 512 MB Raspberry Pi Zero 2 W without a lighter preprocessing path.
+- **Also included:**
+  - A real-time microphone streaming pipeline (~5 ms per inference cycle).
+  - A session-leakage investigation and corrected split.
+  - Probability calibration and uncertainty banding.
+  - Grad-CAM showing localized, anomaly-aligned attention on 3 of 4 machines, with one documented exception (`id_06`).
+
+**Stack:** Python, PyTorch (incl. quantization and pruning), ONNX Runtime, librosa, scikit-learn, XGBoost, Docker (buildx and Colima).
 
 ## Project layout
 
